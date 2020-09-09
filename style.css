@@ -69,7 +69,7 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 480px) {
 
   #heading {
     font-size: 26px;
@@ -80,7 +80,7 @@
   }
 
   #todo-div {
-    width: 48vw;
+    width: 52vw;
   }
 }
 
