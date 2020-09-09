@@ -2,10 +2,56 @@
 
 * {
   font-family: 'Open Sans', sans-serif;
+  background-color: black;
+}
+
+#content {
+  margin: 20px;
 }
 
 #heading {
   text-align: center;
   font-size: 30px;
   font-weight: bold;
+  color: #F46036;
+  border: 2px solid currentColor;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.div-heading {
+  padding: 2px 0;
+  border-bottom: 1px solid currentColor;
+}
+
+#project-div {
+  width: 20vw;
+  min-height: 120px;
+  color: cyan;
+  padding: 10px;
+  border: 2px solid currentColor;
+}
+
+#todo-div {
+  width: 70vw;
+  min-height: 120px;
+  color: #37FF8B;
+  padding: 10px;
+  border: 2px solid currentColor;
+}
+
+@media screen and (max-width: 760px) {
+  #project-div {
+    width: 28vw;
+  }
+  #todo-div {
+    width: 55vw;
+  }
 }
