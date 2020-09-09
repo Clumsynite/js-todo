@@ -42,7 +42,7 @@ const projectContents = () => {
   })
 }
 const newProjectButton = () => {
-
+  
 }
 
 const printLayout = () => {
