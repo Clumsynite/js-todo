@@ -31,25 +31,31 @@
   margin: 0;
 }
 
+.div-style {
+  padding: 0 5px;
+  min-height: 120px;
+  border: 2px solid currentColor;
+}
+
 .div-heading {
   padding: 2px 0;
   border-bottom: 1px solid currentColor;
+  margin-bottom: 5px;
 }
 
 #project-div {
   width: 20vw;
-  min-height: 120px;
   color: cyan;
-  padding: 10px;
-  border: 2px solid currentColor;
+}
+
+.project-title {
+  font-size: 14px;
+  cursor: pointer;
 }
 
 #todo-div {
   width: 70vw;
-  min-height: 120px;
   color: #37FF8B;
-  padding: 10px;
-  border: 2px solid currentColor;
 }
 
 @media screen and (max-width: 760px) {
@@ -58,5 +64,20 @@
   }
   #todo-div {
     width: 55vw;
+  }
+}
+
+@media screen and (max-width: 420px) {
+
+  #heading {
+    font-size: 26px;
+  }
+
+  #project-div {
+    width: 25vw;
+  }
+
+  #todo-div {
+    width: 48vw;
   }
 }
