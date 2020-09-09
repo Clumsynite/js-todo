@@ -13,8 +13,13 @@
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  color: #F46036;
-  border: 2px solid currentColor;
+  background: -webkit-linear-gradient(  #37FF8B, cyan);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: 2px solid;
+  border-image-source: linear-gradient(to right,  cyan , #37FF8B);
+  border-image-slice: 1;
   padding: 20px;
   margin-bottom: 20px;
 }
