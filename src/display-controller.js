@@ -66,6 +66,12 @@ const addProject = () => {
   document.querySelector('#project-div').append(div)
   document.querySelector('#input-div').append(input)
   document.querySelector('#input-div').append(button)
+
+  button.addEventListener('click', addNewProject)
+}
+
+const addNewTitle = () => {
+  
 }
 
 const printLayout = () => {
