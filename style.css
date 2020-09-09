@@ -38,6 +38,7 @@
 }
 
 .div-heading {
+  font-size: 22px;
   padding: 2px 0;
   border-bottom: 1px solid currentColor;
   margin-bottom: 5px;
@@ -49,8 +50,9 @@
 }
 
 .project-title {
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
+  padding: 2px 0;
 }
 
 #todo-div {
@@ -80,4 +82,10 @@
   #todo-div {
     width: 48vw;
   }
+}
+
+@media screen and (hover:hover) {
+  .project-title:hover {
+    color: #00bfff;
+  }  
 }
