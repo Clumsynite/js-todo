@@ -32,7 +32,7 @@
 }
 
 .div-style {
-  padding: 0 5px;
+  padding: 0 5px 5px 5px;
   min-height: 120px;
   border: 2px solid currentColor;
 }
@@ -55,9 +55,47 @@
   padding: 2px 0;
 }
 
+#input-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#get-project-title {
+  border: 1px solid cyan;
+  outline: none;
+  caret-color: currentColor;
+  color: cyan;
+  padding: 2px;
+  font-size: 16px;
+  width: 75%;
+}
+#get-project-title:focus {
+  color: #00bfff;
+}
+
+#add-project-title {
+  width: 20%;
+  border: 1px solid currentColor;
+  color: cyan;
+  font-size: 16px;
+  padding: 0;
+  outline: none;
+}
+
 #todo-div {
   width: 70vw;
   color: #37FF8B;
+}
+
+.add-button {
+  border: 1px solid currentColor;
+  outline: none;
+  color: currentColor;
+  width: 100%;
+  margin: 5px 0;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 760px) {
@@ -78,7 +116,9 @@
   #project-div {
     width: 25vw;
   }
-
+  #add-project-title {
+    font-size: 14px;
+  }
   #todo-div {
     width: 52vw;
   }
@@ -87,5 +127,14 @@
 @media screen and (hover:hover) {
   .project-title:hover {
     color: #00bfff;
-  }  
+  }
+  #add-project:hover {
+    color: #00bfff;
+  }
+  #add-project-title:hover {
+    color: #00bfff;
+  }
+  #add-todo:hover {
+    
+  }
 }
