@@ -9,14 +9,12 @@ const projectTemplate = () => {
       todos: [
         {
           item: "Need more",
-          description: 'Need More content over here',
           dueDate: today,
           complete: false,
           priority: 'high'
         },
         {
           item: "Second Todo",
-          description: 'More content right here',
           dueDate: today,
           complete: true,
           priority: 'medium'
@@ -88,11 +86,6 @@ const getTodos = () => {
     titleCol.appendChild(title)
     itemRow.append(titleCol)
 
-    const descCol = document.createElement('td')
-    const desc = document.createTextNode(project.description)
-    descCol.appendChild(desc)
-    itemRow.append(descCol)
-    
     const dueDateCol = document.createElement('td')
     const date = new Date(project.dueDate)
     const dueDate = document.createTextNode(date.toDateString())

@@ -107,11 +107,6 @@ const todoTable = () => {
   titleCol.appendChild(title)
   headingRow.append(titleCol)
 
-  const descCol = document.createElement('th')
-  const desc = document.createTextNode('Description')
-  descCol.appendChild(desc)
-  headingRow.append(descCol)
-  
   const dueDateCol = document.createElement('th')
   const dueDate = document.createTextNode('Due Date')
   dueDateCol.appendChild(dueDate)
@@ -150,13 +145,6 @@ const getTodoInput = () => {
   title.placeholder = 'Title: '
   div.append(title)
 
-  const desc = document.createElement('input')
-  desc.type = 'text'
-  desc.id = 'todo-desc-input'
-  desc.className = 'todo-input'
-  desc.placeholder = 'Description: '
-  div.append(desc)
-  
   const dueDate = document.createElement('input')
   dueDate.type = 'date'
   dueDate.id = 'todo-date-input'

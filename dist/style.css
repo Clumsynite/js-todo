@@ -126,14 +126,11 @@ td {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 #todo-title-input {
-  width: 45%;
-}
-#todo-desc-input {
-  width: 45%;
+  width: 30%;
 }
 
 #todo-date-input {
