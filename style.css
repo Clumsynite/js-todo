@@ -74,7 +74,7 @@
   color: #00bfff;
 }
 
-#add-project-title {
+.project-button {
   width: 20%;
   border: 1px solid currentColor;
   color: cyan;
@@ -131,10 +131,7 @@
   #add-project:hover {
     color: #00bfff;
   }
-  #add-project-title:hover {
+  .project-button:hover {
     color: #00bfff;
-  }
-  #add-todo:hover {
-    
   }
 }
