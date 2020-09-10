@@ -72,7 +72,7 @@ const addProject = () => {
   cancel.className = 'project-button'
   cancel.textContent = 'X'
   document.querySelector('#input-div').append(cancel)
-  
+
   button.addEventListener('click', addProjectTitle)
   cancel.addEventListener('click', cancelProjectInput)
 }
@@ -86,13 +86,49 @@ const todoContentTable = () => {
   const div = document.createElement('div')
   div.id = 'todo-content'
   document.querySelector('#todo-div').append(div)
-  // todoTable()
+  todoTable()
 }
 
 const todoTable = () => {
   const table = document.createElement('table')
   table.id = 'todo-table'
   document.querySelector('#todo-div').append(table)
+
+  const thead = document.createElement('thead')
+  table.append(thead)
+
+  const headingRow = document.createElement('tr')
+  headingRow.id = 'heading-row'
+  thead.append(headingRow)
+
+  const titleCol = document.createElement('th')
+  const title = document.createTextNode('Title')
+  titleCol.appendChild(title)
+  headingRow.append(titleCol)
+
+  const descCol = document.createElement('th')
+  const desc = document.createTextNode('Description')
+  descCol.appendChild(desc)
+  headingRow.append(descCol)
+  
+  const dueDateCol = document.createElement('th')
+  const dueDate = document.createTextNode('Due Date')
+  dueDateCol.appendChild(dueDate)
+  headingRow.append(dueDateCol)
+  
+  const priorityCol = document.createElement('th')
+  const priority = document.createTextNode('Priority')
+  priorityCol.appendChild(priority)
+  headingRow.append(priorityCol)
+  
+  const statusCol = document.createElement('th')
+  const status = document.createTextNode('Complete?')
+  statusCol.appendChild(status)
+  headingRow.append(statusCol)
+}
+
+const addTodo = () => {
+  
 }
 
 const printLayout = () => {

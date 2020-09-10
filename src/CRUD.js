@@ -8,11 +8,20 @@ const projectTemplate = () => {
       title: "Project - 1",
       todos: [
         {
-          item: "need more projects over here",
+          item: "Need more",
+          description: 'Need More content over here',
           dueDate: today,
           complete: false,
           priority: 'high'
-        }
+        },
+        {
+          item: "Second Todo",
+          description: 'More content right here',
+          dueDate: today,
+          complete: true,
+          priority: 'medium'
+        },
+
       ]
     }
   ]
@@ -53,12 +62,54 @@ const getProjects = () => {
   })
 }
 
+const clearTodoTable = () => {
+  const container = document.querySelector('tbody')
+  if(container != null) {
+    container.remove()
+  }
+}
+
 const getTodos = () => {
+  clearTodoTable()
   const storage = window.localStorage
   const projects = JSON.parse(storage.getItem('projects'))
   const project = event.target.getAttribute('data-index')
-  console.log(projects[project].todos)
-  
+  const selection = projects[project].todos
+
+  const tbody = document.createElement('tbody')
+  document.querySelector('#todo-table').append(tbody)
+
+  selection.forEach(project => {
+    const itemRow = document.createElement('tr')
+    tbody.append(itemRow)
+
+    const titleCol = document.createElement('td')
+    const title = document.createTextNode(project.item)
+    titleCol.appendChild(title)
+    itemRow.append(titleCol)
+
+    const descCol = document.createElement('td')
+    const desc = document.createTextNode(project.description)
+    descCol.appendChild(desc)
+    itemRow.append(descCol)
+    
+    const dueDateCol = document.createElement('td')
+    const date = new Date(project.dueDate)
+    const dueDate = document.createTextNode(date.toDateString())
+    dueDateCol.appendChild(dueDate)
+    itemRow.append(dueDateCol)
+    
+    const priorityCol = document.createElement('td')
+    const priority = document.createTextNode(project.priority)
+    priorityCol.appendChild(priority)
+    itemRow.append(priorityCol)
+    
+    const statusCol = document.createElement('td')
+    const result = project.complete ? 'Yes' : 'No'
+    const status = document.createTextNode(result)
+    statusCol.appendChild(status)
+    itemRow.append(statusCol)
+  })
 }
 
 export { projectTemplate, addProjectTitle, getProjects }

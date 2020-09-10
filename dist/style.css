@@ -90,6 +90,21 @@
 #todo-div {
   width: 70vw;
   color: #37FF8B;
+  overflow: auto;
+}
+
+#todo-table, tr, th {
+
+}
+#todo-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td {
+  text-align: center;
+}
+#todo-table, th, td {
+  border: 1px solid currentColor;
 }
 
 .add-button {
@@ -113,6 +128,9 @@
 
 @media screen and (max-width: 480px) {
 
+  #content {
+    margin: 10px;
+  }
   #heading {
     font-size: 26px;
   }
@@ -124,7 +142,13 @@
     font-size: 14px;
   }
   #todo-div {
-    width: 52vw;
+    width: 60vw;
+  }
+  #todo-table {
+    font-size : 12px;
+  }
+  #td {
+    font-size: 10px;
   }
 }
 
