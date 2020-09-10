@@ -31,6 +31,7 @@ const container = () => {
   newProjectButton()
   divTemplate('todo-div', 'container', 'TODOs')
   todoContentTable()
+  addTodoBtn()
 }
 
 const projectContents = () => {
@@ -127,8 +128,58 @@ const todoTable = () => {
   headingRow.append(statusCol)
 }
 
-const addTodo = () => {
+const addTodoBtn = () => {
+  const button = document.createElement('button')
+  button.id = 'add-todo-btn'
+  button.className = 'todo-button'
+  button.textContent = 'Create New TODO'
+  document.querySelector('#todo-div').append(button)
+  button.addEventListener('click', getTodoInput)
+}
+
+const getTodoInput = () => {
+  document.querySelector('#add-todo-btn').remove()
+  const div = document.createElement('div')
+  div.id = 'todo-input'
+  document.querySelector('#todo-div').append(div)
   
+  const title = document.createElement('input')
+  title.type = 'text'
+  title.id = 'todo-title-input'
+  title.className = 'todo-input'
+  title.placeholder = 'Title: '
+  div.append(title)
+
+  const desc = document.createElement('input')
+  desc.type = 'text'
+  desc.id = 'todo-desc-input'
+  desc.className = 'todo-input'
+  desc.placeholder = 'Description: '
+  div.append(desc)
+  
+  const dueDate = document.createElement('input')
+  dueDate.type = 'date'
+  dueDate.id = 'todo-date-input'
+  div.append(dueDate)
+
+  const priority = document.createElement('select')
+  priority.id = 'todo-priority-input'
+  div.append(priority)
+
+  const high = document.createElement('option')
+  high.text = 'High'
+  priority.add(high)
+  const med = document.createElement('option')
+  med.text = 'Medium'
+  priority.add(med)
+  const low = document.createElement('option')
+  low.text = 'Low'
+  priority.add(low)
+
+  const status = document.createElement('input')
+  status.type = 'checkbox'
+  status.title = 'Complete?'
+  div.append(status)
 }
 
 const printLayout = () => {

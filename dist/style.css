@@ -91,20 +91,71 @@
   width: 70vw;
   color: #37FF8B;
   overflow: auto;
-}
-
-#todo-table, tr, th {
 
 }
+
 #todo-table {
   border-collapse: collapse;
   width: 100%;
+  margin-top: 10px;
 }
 td {
   text-align: center;
 }
 #todo-table, th, td {
   border: 1px solid currentColor;
+}
+
+#add-todo-btn {
+  width: 100%;
+  padding: 2px;
+  margin-top: 10px;
+}
+
+.todo-button {
+  width: 20%;
+  border: 1px solid currentColor;
+  color: currentColor;
+  font-size: 16px;
+  padding: 0;
+  outline: none;
+}
+
+#todo-input {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#todo-title-input {
+  width: 45%;
+}
+#todo-desc-input {
+  width: 45%;
+}
+
+#todo-date-input {
+  border: 1px solid currentColor;
+  outline: none;
+  background-color: white;
+}
+
+.todo-input {
+  border: 1px solid #37FF8B;
+  caret-color: currentColor;
+  color: currentColor;
+  font-size: 14px;
+  outline: none;
+}
+.todo-input:focus {
+  color: #47ff37;
+}
+
+#todo-priority-input {
+  background-color: black;
+  color: #37FF8B;
 }
 
 .add-button {
@@ -161,5 +212,8 @@ td {
   }
   .project-button:hover {
     color: #00bfff;
+  }
+  .todo-button:hover {
+    color: #47ff37;
   }
 }
