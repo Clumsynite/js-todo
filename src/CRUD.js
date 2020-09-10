@@ -103,6 +103,7 @@ const getTodos = () => {
     statusCol.appendChild(status)
     itemRow.append(statusCol)
   })
+  document.querySelector('#add-todo-btn').style.display = 'block'
 }
 
 const addNewTodo = () => {

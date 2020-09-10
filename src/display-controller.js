@@ -189,6 +189,7 @@ const getTodoInput = () => {
 const cancelTodoInput = () => {
   document.querySelector('#todo-input').remove()
   addTodoBtn()
+  document.querySelector('#add-todo-btn').style.display = 'block'
 }
 
 const printLayout = () => {
