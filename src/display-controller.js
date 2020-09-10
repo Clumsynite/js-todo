@@ -1,3 +1,5 @@
+import { addProjectTitle, getProjects } from './CRUD.js'
+
 const titleBar = (title) => {
   const heading = document.createElement('div')
   heading.textContent = title
@@ -31,16 +33,10 @@ const container = () => {
 }
 
 const projectContents = () => {
-  const projects = ['Project - 1', 'Project - 2', 'Project - 3', 'Project - 4', 'Project - 5', 'Project - 6', 'Project - 7', 'Project - 8']
   const div = document.createElement('div')
   div.id = 'project-content'
   document.querySelector('#project-div').append(div)
-  projects.forEach(project => {
-    const temp = document.createElement('div')
-    temp.classList.add('project-title')
-    temp.textContent = project
-    document.querySelector('#project-content').append(temp)
-  })
+  getProjects()
 }
 
 const newProjectButton = () => {
@@ -62,22 +58,28 @@ const addProject = () => {
   input.type = 'text'
   const button = document.createElement('button')
   button.id = 'add-project-title'
+  button.className = 'project-button'
   button.textContent = '+'
+  const cancel = document.createElement('button')
+  cancel.id = 'cancel-title-input'
+  cancel.className = 'project-button'
+  cancel.textContent = 'X'
   document.querySelector('#project-div').append(div)
   document.querySelector('#input-div').append(input)
   document.querySelector('#input-div').append(button)
-
-  button.addEventListener('click', addNewProject)
+  document.querySelector('#input-div').append(cancel)
+  button.addEventListener('click', addProjectTitle)
+  cancel.addEventListener('click', cancelProjectInput)
 }
 
-const addNewTitle = () => {
-  
+const cancelProjectInput = () => {
+  document.querySelector('#input-div').remove()
+  newProjectButton()
 }
 
 const printLayout = () => {
   titleBar("Clumsyknight's TODO List")
   container()
-
 }
 
-export { printLayout }
+export { printLayout, cancelProjectInput }
