@@ -1,5 +1,5 @@
 import { newTodo, newProject } from './objects.js'
-import { cancelProjectInput } from './display-controller'
+import { cancelProjectInput, cancelTodoInput } from './display-controller'
 
 const projectTemplate = () => {
   let today = new Date()
@@ -105,4 +105,9 @@ const getTodos = () => {
   })
 }
 
-export { projectTemplate, addProjectTitle, getProjects }
+const addNewTodo = () => {
+  cancelTodoInput()
+  console.log('add todo')
+}
+
+export { addProjectTitle, getProjects, addNewTodo }

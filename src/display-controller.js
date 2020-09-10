@@ -1,4 +1,4 @@
-import { addProjectTitle, getProjects } from './CRUD.js'
+import { addProjectTitle, getProjects, addNewTodo } from './CRUD.js'
 
 const titleBar = (title) => {
   const heading = document.createElement('div')
@@ -167,7 +167,28 @@ const getTodoInput = () => {
   const status = document.createElement('input')
   status.type = 'checkbox'
   status.title = 'Complete?'
+  status.id = 'todo-status-input'
   div.append(status)
+
+  const accept = document.createElement('button')
+  accept.id = 'todo-add-btn'
+  accept.className = 'todo-button'
+  accept.textContent = '+'
+  div.append(accept)
+  
+  const cancel = document.createElement('button')
+  cancel.id = 'todo-cancel-btn'
+  cancel.className = 'todo-button'
+  cancel.textContent = 'X'
+  div.append(cancel)
+
+  accept.addEventListener('click', addNewTodo)
+  cancel.addEventListener('click', cancelTodoInput)
+}
+
+const cancelTodoInput = () => {
+  document.querySelector('#todo-input').remove()
+  addTodoBtn()
 }
 
 const printLayout = () => {
@@ -175,4 +196,4 @@ const printLayout = () => {
   container()
 }
 
-export { printLayout, cancelProjectInput }
+export { printLayout, cancelProjectInput, cancelTodoInput }

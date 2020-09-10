@@ -126,17 +126,7 @@ td {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
-}
-
-#todo-title-input {
-  width: 30%;
-}
-
-#todo-date-input {
-  border: 1px solid currentColor;
-  outline: none;
-  background-color: white;
+  flex-wrap: wrap;
 }
 
 .todo-input {
@@ -150,9 +140,28 @@ td {
   color: #47ff37;
 }
 
+#todo-title-input {
+  width: 45%;
+}
+
+#todo-date-input {
+  border: 1px solid currentColor;
+  outline: none;
+  background-color: white;
+}
+
 #todo-priority-input {
   background-color: black;
   color: #37FF8B;
+}
+
+#todo-status-input {
+  width: 20px;
+  height: 20px;
+}
+
+#todo-add-btn, #todo-cancel-btn {
+  width: 10%;
 }
 
 .add-button {
