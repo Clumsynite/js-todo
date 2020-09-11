@@ -122,6 +122,9 @@ td {
 .title-cell {
   cursor: pointer;
 }
+.status-cell {
+  cursor: pointer;
+}
 
 #add-todo-btn {
   display: none;
