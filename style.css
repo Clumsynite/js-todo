@@ -5,6 +5,13 @@
   background-color: black;
 }
 
+a {
+  text-decoration: none; background: -webkit-linear-gradient(  #37FF8B, cyan);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 #content {
   margin: 20px;
 }
