@@ -131,6 +131,7 @@ const renderTodos = (array) => {
 
   array.forEach((project, i) => {
     const itemRow = document.createElement('tr')
+    itemRow.className = 'item-row'
     tbody.append(itemRow)
 
     const titleCol = document.createElement('td')
