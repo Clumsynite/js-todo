@@ -2,7 +2,7 @@ import { addProjectTitle, getProjects, addNewTodo } from './CRUD.js'
 
 const titleBar = (title) => {
   const heading = document.createElement('div')
-  heading.textContent = title
+  heading.innerHTML = title
   heading.id = 'heading'
   document.querySelector('#content').append(heading)
 }
@@ -193,7 +193,8 @@ const cancelTodoInput = () => {
 }
 
 const printLayout = () => {
-  titleBar("Clumsyknight's TODO List")
+  const title = "<a href='https://github.com/Clumsynite/' target='_blank'>Clumsyknight</a>'s <a href='https://github.com/Clumsynite/js-todo' target='_blank'>TODO List</a>"
+  titleBar(title)
   container()
 }
 
