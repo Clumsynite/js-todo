@@ -1,6 +1,11 @@
 
-const newTodo = ( title, description, dueDate, priority, status=false ) => {
-  return { title, description, dueDate, priority, status }
+const newTodo = ( item, dueDate, priority, complete ) => {
+  return { 
+    item, 
+    dueDate, 
+    priority, 
+    complete 
+  }
 }
 
 const newProject = (title) => {

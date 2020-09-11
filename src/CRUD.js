@@ -1,5 +1,5 @@
 import { newTodo, newProject } from './objects.js'
-import { cancelProjectInput, cancelTodoInput } from './display-controller'
+import { cancelProjectInput, addTodoBtn, cancelTodoInput } from './display-controller'
 
 const projectTemplate = () => {
   let today = new Date()
@@ -26,15 +26,32 @@ const projectTemplate = () => {
   return temp  
 }
 
+const PROJECT = {}
+
+const setIndex = (index) => {
+  PROJECT.index = index
+}
+
+const getIndex = () => PROJECT.index
+
 const addProjectTitle = () => {
-  const title = document.querySelector('#get-project-title').value
-  const project = newProject(title) 
-  const storage = window.localStorage
-  let projects = JSON.parse(storage.getItem('projects'))
-  projects.push(project)
-  storage.setItem('projects', JSON.stringify(projects))
-  getProjects()
-  cancelProjectInput()
+  const title = document.querySelector('#get-project-title')
+  if(title.value === ''){
+    title.style.setProperty('font-size', '10px')
+    title.value = 'Title is Empty'
+    setTimeout(() => {
+      title.style.setProperty('font-size', '16px')
+      title.value = ''
+    }, 1000)
+  }else {
+    const project = newProject(title.value) 
+    const storage = window.localStorage
+    let projects = JSON.parse(storage.getItem('projects'))
+    projects.push(project)
+    storage.setItem('projects', JSON.stringify(projects))
+    getProjects()
+    cancelProjectInput()
+  }
 }
 
 const clearProjectContents = () => {
@@ -56,7 +73,7 @@ const getProjects = () => {
     title.setAttribute('data-index', i)
     title.textContent = project.title
     document.querySelector('#project-content').append(title)
-    title.addEventListener('click', getTodos)
+    title.addEventListener('click', projectClick)
   })
 }
 
@@ -67,17 +84,32 @@ const clearTodoTable = () => {
   }
 }
 
+const projectClick = (e) => {
+  setIndex(e.target.getAttribute('data-index'))
+  getTodos()
+}
+
 const getTodos = () => {
   clearTodoTable()
   const storage = window.localStorage
   const projects = JSON.parse(storage.getItem('projects'))
-  const project = event.target.getAttribute('data-index')
+  const project = getIndex()
   const selection = projects[project].todos
 
+  renderTodos(selection)
+  
+  addTodoBtn()
+  document.querySelector('#add-todo-btn').style.display = 'block'
+  if(document.querySelector('#todo-cancel-btn') !== null){
+    document.querySelector('#todo-cancel-btn').click()
+  }
+}
+
+const renderTodos = (array) => {
   const tbody = document.createElement('tbody')
   document.querySelector('#todo-table').append(tbody)
 
-  selection.forEach(project => {
+  array.forEach(project => {
     const itemRow = document.createElement('tr')
     tbody.append(itemRow)
 
@@ -103,12 +135,40 @@ const getTodos = () => {
     statusCol.appendChild(status)
     itemRow.append(statusCol)
   })
-  document.querySelector('#add-todo-btn').style.display = 'block'
 }
 
 const addNewTodo = () => {
+  const index = getIndex()
+  const titleInput = document.querySelector('#todo-title-input')
+  let title = titleInput.value
+  const dateInput = document.querySelector('#todo-date-input')
+  const dateValue = new Date(dateInput.value)
+  let date = dateValue.toDateString()
+  const priorityInput = document.querySelector('#todo-priority-input')
+  let priority = priorityInput.value
+  const statusInput = document.querySelector('#todo-status-input')
+  let status = statusInput.checked
+  
+  if(titleInput.value === ''){
+    titleInput.style.setProperty('font-size', '10px')
+    titleInput.value = 'Title is Empty'
+    setTimeout(() => {
+      titleInput.style.setProperty('font-size', '14px')
+      titleInput.value = ''
+    }, 1000)
+  }else if(date === 'Invalid Date'){
+    const today = new Date()
+    date = today.toDateString()
+  }
+
+  const todo = newTodo(title, date, priority, status) 
+  const storage = window.localStorage
+  let projects = JSON.parse(storage.getItem('projects'))
+  let oldTodo = projects[index].todos
+  oldTodo.push(todo)
+  storage.setItem('projects', JSON.stringify(projects))
   cancelTodoInput()
-  console.log('add todo')
+  getTodos()
 }
 
-export { addProjectTitle, getProjects, addNewTodo }
+export { projectTemplate, addProjectTitle, getProjects, addNewTodo }

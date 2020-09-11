@@ -31,7 +31,6 @@ const container = () => {
   newProjectButton()
   divTemplate('todo-div', 'container', 'TODOs')
   todoContentTable()
-  addTodoBtn()
 }
 
 const projectContents = () => {
@@ -133,11 +132,12 @@ const addTodoBtn = () => {
 }
 
 const getTodoInput = () => {
-  document.querySelector('#add-todo-btn').remove()
+  const addBtn = document.querySelector('#add-todo-btn')
+  const index = addBtn.getAttribute('data-index')
+  addBtn.remove()
   const div = document.createElement('div')
   div.id = 'todo-input'
   document.querySelector('#todo-div').append(div)
-  
   const title = document.createElement('input')
   title.type = 'text'
   title.id = 'todo-title-input'
@@ -197,4 +197,4 @@ const printLayout = () => {
   container()
 }
 
-export { printLayout, cancelProjectInput, cancelTodoInput }
+export { printLayout, cancelProjectInput, addTodoBtn, cancelTodoInput }

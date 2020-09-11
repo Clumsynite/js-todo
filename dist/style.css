@@ -127,7 +127,7 @@ td {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap;
+  border: 1px solid #37FF8B;
 }
 
 .todo-input {
@@ -139,10 +139,6 @@ td {
 }
 .todo-input:focus {
   color: #47ff37;
-}
-
-#todo-title-input {
-  width: 45%;
 }
 
 #todo-date-input {
@@ -182,6 +178,9 @@ td {
   #todo-div {
     width: 55vw;
   }
+  #todo-title-input {
+    width: 30%;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -207,6 +206,9 @@ td {
   }
   #td {
     font-size: 10px;
+  }
+  #todo-input {
+    flex-wrap: wrap;
   }
 }
 
