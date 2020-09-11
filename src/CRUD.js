@@ -159,7 +159,6 @@ const renderTodos = (array) => {
     if(project.complete) {
       itemRow.style.setProperty('text-decoration', 'line-through red')
     }
-    console.log(project.complete)
     statusCol.className = 'status-cell'
     statusCol.setAttribute('data-index', i)
     statusCol.title = 'Click Here to Alter Option'
