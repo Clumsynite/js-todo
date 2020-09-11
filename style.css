@@ -248,10 +248,17 @@ td {
     font-weight: bold;
   }
   
+  .project-title:hover {
+    color: #00bfff;
+  }
+
   #add-todo-btn:hover, #todo-add-btn:hover, #todo-cancel-btn:hover {
     background-color: #47ff37;
     color: black;
     font-weight: bold;
   }
 
+  .item-row:hover {
+    color: #47ff37;
+  }
 }
