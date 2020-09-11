@@ -57,6 +57,8 @@
 
 #add-project {
   margin: 5px 0 0 0;
+  background-color: cyan;
+  color: black;
 }
 
 #input-div {
@@ -87,14 +89,16 @@
 
 .delete-btn {
   border: 1px solid currentColor;
-  color: cyan;
+  background-color: cyan;
+  color: black;
   outline: none;
 }
 
 .project-button {
   width: 20%;
   border: 1px solid currentColor;
-  color: cyan;
+  background-color: cyan;
+  color: black;
   font-size: 16px;
   padding: 0;
   outline: none;
@@ -104,7 +108,6 @@
   width: 70vw;
   color: #37FF8B;
   overflow: auto;
-
 }
 
 #todo-table {
@@ -131,12 +134,15 @@ td {
   width: 100%;
   padding: 2px;
   margin-top: 10px;
+  background-color: #37FF8B;
+  color: black;
+  border: 1px solid black;
 }
 
 .todo-button {
   width: 20%;
-  border: 1px solid currentColor;
-  color: currentColor;
+  border: 1px solid black;
+  color: black;
   font-size: 16px;
   padding: 0;
   outline: none;
@@ -179,6 +185,9 @@ td {
 
 #todo-add-btn, #todo-cancel-btn {
   width: 10%;
+  background-color: #37FF8B;
+  color: black;
+  border: 1px solid black;
 }
 
 .add-button {
@@ -233,19 +242,16 @@ td {
 }
 
 @media screen and (hover:hover) {
-  .project-title:hover {
-    color: #00bfff;
+  #add-project:hover, .delete-btn:hover, .project-button:hover {
+    background-color: #00bfff;
+    color: black;
+    font-weight: bold;
   }
-  .delete-btn:hover {
-    color: #00bfff;
+  
+  #add-todo-btn:hover, #todo-add-btn:hover, #todo-cancel-btn:hover {
+    background-color: #47ff37;
+    color: black;
+    font-weight: bold;
   }
-  #add-project:hover {
-    color: #00bfff;
-  }
-  .project-button:hover {
-    color: #00bfff;
-  }
-  .todo-button:hover {
-    color: #47ff37;
-  }
+
 }
