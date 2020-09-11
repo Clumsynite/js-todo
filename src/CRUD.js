@@ -68,13 +68,33 @@ const getProjects = () => {
   const item = window.localStorage.getItem('projects')
   const projects = JSON.parse(item)
   projects.forEach((project, i) => {
+    const div = document.createElement('div')
+    div.className = 'title-div'
+    document.querySelector('#project-content').append(div)
     const title = document.createElement('div')
     title.classList.add('project-title')
     title.setAttribute('data-index', i)
     title.textContent = project.title
-    document.querySelector('#project-content').append(title)
+    div.append(title)
     title.addEventListener('click', projectClick)
+    const button = document.createElement('button')
+    button.className = 'delete-btn'
+    button.textContent = 'X'
+    button.setAttribute('data-index', i)
+    div.append(button)
+    button.addEventListener('click', deleteProject)
   })
+}
+
+const deleteProject = (e) => {
+  const answer = confirm('Are you sure you want to delete this Project\nThis process can\'t be reversed')
+  const index = e.target.getAttribute('data-index')
+
+  const storage = window.localStorage
+  let projects = JSON.parse(storage.getItem('projects'))
+  answer ? projects.splice(index, 1) : projects
+  storage.setItem('projects', JSON.stringify(projects))
+  getProjects()
 }
 
 const clearTodoTable = () => {
@@ -109,14 +129,18 @@ const renderTodos = (array) => {
   const tbody = document.createElement('tbody')
   document.querySelector('#todo-table').append(tbody)
 
-  array.forEach(project => {
+  array.forEach((project, i) => {
     const itemRow = document.createElement('tr')
     tbody.append(itemRow)
 
     const titleCol = document.createElement('td')
     const title = document.createTextNode(project.item)
+    titleCol.className = 'title-cell'
+    titleCol.setAttribute('data-index', i)
+    titleCol.title = 'Click Here to delete TODO'
     titleCol.appendChild(title)
     itemRow.append(titleCol)
+    titleCol.addEventListener('click', deleteTodo)
 
     const dueDateCol = document.createElement('td')
     const date = new Date(project.dueDate)
@@ -135,6 +159,19 @@ const renderTodos = (array) => {
     statusCol.appendChild(status)
     itemRow.append(statusCol)
   })
+}
+
+const deleteTodo = (e) => {
+  const cellIndex = e.target.getAttribute('data-index')
+  const answer = confirm('Are you sure you want to delete this TODO\nThis process can\'t be reversed')
+  const index = getIndex()
+
+  const storage = window.localStorage
+  const projects = JSON.parse(storage.getItem('projects'))
+  let oldTodo = projects[index].todos
+  answer ? oldTodo.splice(cellIndex, 1) : oldTodo
+  storage.setItem('projects', JSON.stringify(projects))
+  getTodos()
 }
 
 const addNewTodo = () => {

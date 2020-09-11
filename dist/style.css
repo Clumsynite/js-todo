@@ -65,6 +65,13 @@
   justify-content: space-between;
 }
 
+.title-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
 #get-project-title {
   border: 1px solid cyan;
   outline: none;
@@ -76,6 +83,12 @@
 }
 #get-project-title:focus {
   color: #00bfff;
+}
+
+.delete-btn {
+  border: 1px solid currentColor;
+  color: cyan;
+  outline: none;
 }
 
 .project-button {
@@ -104,6 +117,10 @@ td {
 }
 #todo-table, th, td {
   border: 1px solid currentColor;
+}
+
+.title-cell {
+  cursor: pointer;
 }
 
 #add-todo-btn {
@@ -214,6 +231,9 @@ td {
 
 @media screen and (hover:hover) {
   .project-title:hover {
+    color: #00bfff;
+  }
+  .delete-btn:hover {
     color: #00bfff;
   }
   #add-project:hover {
