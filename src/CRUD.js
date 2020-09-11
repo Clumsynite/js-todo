@@ -156,9 +156,30 @@ const renderTodos = (array) => {
     const statusCol = document.createElement('td')
     const result = project.complete ? 'Yes' : 'No'
     const status = document.createTextNode(result)
+    if(project.complete) {
+      itemRow.style.setProperty('text-decoration', 'line-through red')
+    }
+    console.log(project.complete)
+    statusCol.className = 'status-cell'
+    statusCol.setAttribute('data-index', i)
+    statusCol.title = 'Click Here to Alter Option'
     statusCol.appendChild(status)
     itemRow.append(statusCol)
+    statusCol.addEventListener('click', markUnmark)
   })
+}
+
+const markUnmark = (e) => {
+  const cellIndex = e.target.getAttribute('data-index')
+  const index = getIndex()
+  const storage = window.localStorage
+  const projects = JSON.parse(storage.getItem('projects'))
+  const todo = projects[index].todos
+  let row = todo[cellIndex]
+  let state = row.complete
+  state = state ? row.complete = false : row.complete = true
+  storage.setItem('projects', JSON.stringify(projects))
+  getTodos()
 }
 
 const deleteTodo = (e) => {
